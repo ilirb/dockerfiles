@@ -29,9 +29,6 @@ COPY --from=bitnami/git:2.31.1 /opt/bitnami/git/bin /opt/bitnami/git/bin
 
 ENV PATH="/opt/bitnami/git/bin:${PATH}"
 
-# COPY --from=mcr.microsoft.com/powershell:lts-debian-buster-slim /opt/microsoft/powershell/7-lts/ /opt/microsoft/powershell/7-lts/
-# RUN chmod a+x,o-w /opt/microsoft/powershell/7-lts/pwsh && ln -s /opt/microsoft/powershell/7-lts/pwsh /usr/local/bin/pwsh
-
 WORKDIR /home
 
 ENTRYPOINT [ "/bin/bash" ]
