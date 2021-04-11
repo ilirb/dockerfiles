@@ -10,7 +10,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        dockerfile: [tools]
+        dockerfile: [tools, alpine-jq]
     steps:
       - uses: actions/checkout@v2
       - uses: qlik-oss/ci-tools/action-print-event-info@master
