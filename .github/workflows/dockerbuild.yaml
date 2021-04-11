@@ -29,9 +29,9 @@ jobs:
         uses: actions/cache@v2
         with:
           path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          key: ${{ runner.os }}-buildx-${{ matrix.dockerfile }}-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-buildx-
+            ${{ runner.os }}-buildx-${{ matrix.dockerfile }}-
 
       - name: Build Docker image
         uses: docker/build-push-action@v2
@@ -47,4 +47,4 @@ jobs:
           rm -rf /tmp/.buildx-cache
           mv /tmp/.buildx-cache-new /tmp/.buildx-cache
 
-# https://github.com/docker/build-push-action/blob/master/docs/advanced/cache.md
+      # https://github.com/docker/build-push-action/blob/master/docs/advanced/cache.md
