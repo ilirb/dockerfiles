@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     vim-tiny && \
     apt-get clean
 
-RUN pip install yamllint
+RUN pip install pyyaml requests yamllint
 
 COPY --from=mikefarah/yq:4 /usr/bin/yq /usr/local/bin/yq
 # COPY --from=hashicorp/terraform:0.14.10 /bin/terraform /usr/local/bin/terraform
