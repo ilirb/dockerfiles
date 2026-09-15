@@ -14,13 +14,12 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     bash-completion \
     iputils-ping \
     dnsutils \
-    yq \
     vim-tiny && \
     apt-get clean
 
 RUN pip install pyyaml requests yamllint
+RUN wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/local/bin/yq && chmod +x /usr/local/bin/yq
 
-# COPY --from=docker:20.10 /usr/local/bin/docker /usr/local/bin/docker
 WORKDIR /home
 
 ENTRYPOINT [ "/bin/bash" ]
